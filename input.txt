@@ -1,0 +1,10 @@
+input.txt contents 1
+input.txt contents 2
+input.txt contents 3
+input.txt contents 4
+input.txt contents 5
+input.txt contents 6
+input.txt contents 7
+input.txt contents 8
+input.txt contents 9
+input.txt contents 10
