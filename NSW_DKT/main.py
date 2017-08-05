@@ -18,7 +18,7 @@ class Exam:
                                                                         , self.choices[2])
 
 listExams = []
-quesCounter = 01
+quesCounter = 0
 choices = []
 question = ''
 
@@ -30,20 +30,30 @@ with open(DKT_FILENAME, 'r') as f:
         if (line == '\n'): continue
         line = line.strip()
 
+        # found = line.find('particular')
+        # print ('found =' + str(found))
+        #
+        #
+        # if (found != -1):
+        #     print 'weh = ' + line[-1] + line
+
         try:
             if line[-1] == '?' or line[-1] == '-':
                 question = line
                 quesCounter+=1
                 choices = [] #clear choices
+
+                print 'Question #{}:{}'.format(quesCounter, question)
             else:
 
                 choices.append(line)
-
-                if (len(choices)== 3 and question is not ''):
+                #print (line)
+                if (len(choices)== 3 and question != ''):
+                    #print ('Adding Question:{} with choices {}'.format(question, choices))
                     ExamItem = Exam(question, choices)
                     listExams.append(ExamItem)
                     choices = []
-                    question = ''
+                    question = '' #reset question field
 
         except:
             pass
@@ -80,7 +90,10 @@ def take_exam():
             print 'Invalid input'
             raw_input()
 
-take_exam()
+
+if __name__ == '__main__':
+    take_exam()
+
 
 
 
